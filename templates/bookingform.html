@@ -1,0 +1,73 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bookingform.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+    <form method='POST' action=".">
+    {% csrf_token %}
+    <div class="booking-form-box" style="align:center">
+
+    <h1>Search Flights</h1>
+        {% comment %} <div class="radio-btn">
+            <input type="radio" class="btn" name="way" checked="checked"><span>Roundtrip</span>
+            <input type="radio" class="btn" name="way"> <span>One Way</span>
+            <input type="radio" class="btn" name="way"> <span> Multi-City</span>
+        </div> {% endcomment %}
+
+        <div>
+            <div class="booking-form">
+                <label>Flying From </label>
+                <input type="text" class="form-control" placeholder="City or Airport" name='source'>
+                <label>Flying To </label>
+                <input type="text" class="form-control" placeholder="City or Airport" name='destination'>
+
+                {% comment %} <div class="input-grp">
+                    <label> Departing </label>
+                    <input type="date" class="form-control select-date" name="departing" data-date-split-input="true">
+                </div>
+                <div class="input-grp">
+                    <label> Returning </label>
+                    <input type="date" class="form-control select-date" name="returning" data-date-split-input="true"> {% endcomment %}
+                {% comment %} </div>
+                <div class="input-grp">
+                    <label>Adults </label>
+                    <input type="number" class="form-control" value="1">
+                </div>
+                <div class="input-grp">
+                    <label> Children </label>
+                    <input type="number" class="form-control" value="0">
+                </div> {% endcomment %}
+
+                <div class="input-grp">
+                    <label> Travel Class</label>
+                    <select class="custom-select" id="FareType" name="FareType">
+                        <option value="Economy">Economy Class</option>
+                        <option value="Business">Business Class</option>
+                    </select>
+                </div>
+                <div class="input-grp">
+                <input type="submit" class="btn btn-primary flight" value='Show flights' name='Show flights'>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </form>
+
+
+
+</body>
+
+</html>

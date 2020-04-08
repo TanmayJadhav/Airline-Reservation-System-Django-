@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{%block content%}
+    <div class="topnav">
+        <h1>Airline Reservation System</h1>
+      
+        <a href={% url 'Airline_Reservation:logout_page' %}>Logout</a>
+        <a href={% url 'Airline_Reservation:about_page' %}>About</a>
+        <a><h4>Hello {{ user.username}}</h4></a>
+        </div>
+        
+<h1><a href="{% url 'Airline_Reservation:reservation_page' %}">View Bookings</a></h1>
+{%endblock%}

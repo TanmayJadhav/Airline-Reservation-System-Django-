@@ -1,0 +1,53 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking form</title>
+    
+</head>
+
+<body>
+    <table border="1px">
+
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Adults</th>
+        <th>Children</th>
+        <th>Flight Date</th>
+        <th>Return Date</th>
+        
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+{% for user in users %}
+<tr>
+    <td>{{user.Name}}</td>
+    <td>{{user.Email}}</td>
+    <td>{{user.Adults}}</td>
+    <td>{{user.Children}}</td>
+    <td>{{user.Flight_Date}}</td>
+    <td>{{user.Returning_Date}}</td>
+    
+
+    <form method ="POST"  >
+         {% csrf_token %}
+        <td><a href="{% url 'Airline_Reservation:full_details' user=user.id  %}">View Details</a></td>
+        
+    </form>    
+</tr>
+</tbody>
+{% endfor %}
+</table>
+
+
+</body>
+
+</html>

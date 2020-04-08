@@ -1,0 +1,64 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking form</title>
+    
+</head>
+
+<body>
+    <table border="1px">
+
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Airlnes</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Flight Date</th>
+        <th>Return Date</th>
+        <th>Adults</th>
+        <th>Children</th>
+        <th>Fare Type</th>
+        <th>Total Price</th>
+        
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+{% for fl in flight %}
+<tr> 
+    <td>{{user.Name}}</td>
+    <td>{{user.Email}}</td>
+    <td>{{fl.Airlines}}</td>
+    <td>{{fl.Source}}</td>
+    <td>{{fl.Destination}}</td>
+    <td>{{fl.Departure_Time}}</td>
+    <td>{{fl.Arrival_Time}}</td>
+    <td>{{user.Flight_Date}}</td>
+    <td>{{user.Returning_Date}}</td>
+    <td>{{user.Adults}}</td>
+    <td>{{user.Children}}</td>
+    <td>{{fl.Fare_Type}}</td>
+    <td>{{fl.Price}}</td>
+    
+      
+</tr>
+</tbody>
+{% endfor %}
+</table>
+
+
+
+  
+</body>
+
+</html>

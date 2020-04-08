@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <div class="topnav">
+        <h1>Airline Reservation System</h1>
+        <a href={% url 'Airline_Reservation:about_page' %}>About</a>
+        <a href={% url 'Airline_Reservation:login_page' %}>Login</a>
+        </div>
+
+ <div class="login-box">
+        <h1>SignUp</h1>
+        <form method='POST'>
+            {% csrf_token %}      
+            <p>Email</p>
+            <input type="email" placeholder="Enter Email" name='email'>
+            <p>Username</p>
+            <input type="text" placeholder="Enter Username" name='username'>
+            <p>Password</p>
+            <input type="password" placeholder="Create Password" name='password1'>
+            <p>Conform Password</p>
+            <input type="password" placeholder="Conform Password" name='password2'>
+            <input type="submit" value="SignUp">
+            <div class="tanmay">Already have an account <a href={% url 'Airline_Reservation:login_page'%}>Login?</a></div> <br>
+       <div>
+       {% for message in messages%}
+       {{message}}
+       {% endfor%}
+       </div>
+{% endblock %}
