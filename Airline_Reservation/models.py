@@ -20,5 +20,5 @@ class Reservation_Details(models.Model):
     Flight_Date=models.DateField(null=True) 
     Returning_Date=models.DateField(null=True)
     Adults=models.IntegerField(null=True)
-    Children=models.IntegerField(null=True)
+    Children=models.IntegerField(null=True,default=0)
     

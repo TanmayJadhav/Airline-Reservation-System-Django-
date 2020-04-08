@@ -128,12 +128,12 @@ def reservationdetails(request):
     return render(request,"reservationdetails.html",{'users':users})
 
 
-def fulldetails(request,user,self):
+def fulldetails(request,user):
     user_info=Reservation_Details.objects.get(id=user)
     flight_info = Airplane_Details.objects.filter(id=user_info.key_id)
     
 
-    Price=self.flight_info.Price*self.user_info.Adults + self.user_info.Children*1.5
-    print(Price)
+    # Price=self.flight_info.Price*self.user_info.Adults + self.user_info.Children*1.5
+    # print(Price)
 
-    return render(request,"fulldetails.html",{'user':user_info,'flight':flight_info,'Price':Price})    
+    return render(request,"fulldetails.html",{'user':user_info,'flight':flight_info})    
