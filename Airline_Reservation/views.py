@@ -130,10 +130,15 @@ def reservationdetails(request):
 
 def fulldetails(request,user):
     user_info=Reservation_Details.objects.get(id=user)
-    flight_info = Airplane_Details.objects.filter(id=user_info.key_id)
+    flight_info = Airplane_Details.objects.get(id=user_info.key_id)
+
+
+    price =int(flight_info.Price)
+    adults= int(user_info.Adults)
+    children=int(user_info.Adults)
+    Total_price=price*adults+price*children
+    print(Total_price)
+
     
 
-    # Price=self.flight_info.Price*self.user_info.Adults + self.user_info.Children*1.5
-    # print(Price)
-
-    return render(request,"fulldetails.html",{'user':user_info,'flight':flight_info})    
+    return render(request,"fulldetails.html",{'user':user_info,'fl':flight_info,'price':Total_price})    
