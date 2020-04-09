@@ -1,4 +1,4 @@
-{% load static%}
+{% comment %} {% load static%} {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +6,69 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking form</title>
+    <title>Flight Details</title>
+
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
 </head>
 
 <body>
-    <table border="1px">
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>  
+      <th scope="col">Email</th>
+      <th scope="col">Airlines</th>
+      <th scope="col">Source</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Departure Time</th>
+      <th scope="col">Arrival Time</th>
+      <th scope="col">Flight Date</th>
+      <th scope="col">Return Date</th>
+      <th scope="col">Adults</th>
+      <th scope="col">Children</th>
+      <th scope="col">Fare Type</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+    <tr>
+     <td>{{user.Name}}</td>
+    <td>{{user.Email}}</td>
+    <td>{{fl.Airlines}}</td>
+    <td>{{fl.Source}}</td>
+    <td>{{fl.Destination}}</td>
+    <td>{{fl.Departure_Time}}</td>
+    <td>{{fl.Arrival_Time}}</td>
+    <td>{{user.Flight_Date}}</td>
+    <td>{{user.Returning_Date}}</td>
+    <td>{{user.Adults}}</td>
+    <td>{{user.Children}}</td>
+    <td>{{fl.Fare_Type}}</td>
+    <td>{{price}}</td>
+        
+       
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+</body>
+</html>
+
+
+
+    {% comment %} <table border="1px">
 
     <thead>
     <tr>
@@ -53,7 +110,7 @@
       
 </tr>
 </tbody>
-</table>
+</table> {% endcomment %}
 
 
 

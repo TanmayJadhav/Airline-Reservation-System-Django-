@@ -96,7 +96,7 @@ def bookingform (request):
                                                                                                                             
                 details = Airplane_Details.objects.filter(Source=source).filter(Destination=destination).filter(Fare_Type=faretype)
                
-                return render(request,"test.html",{'details':details})
+                return render(request,"flightdetails.html",{'details':details})
 
     return render(request,"bookingform.html")
 
@@ -109,13 +109,12 @@ def bookingpage(request,flight_id):
         data.Name=request.POST['name']
         data.Email =current_user.email
         data.Adults=request.POST.get('adult',0)
-        data.Childern=request.POST.get('children',0)
+        data.Children = request.POST.get('children')
         data.Flight_Date=request.POST['departing']
         data.Returning_Date=request.POST['returning']
         data.key_id=flight_id
 
         data.save()
-
     return render(request,"bookingpage.html",{'user':current_user})
 
 
@@ -135,7 +134,7 @@ def fulldetails(request,user):
 
     price =int(flight_info.Price)
     adults= int(user_info.Adults)
-    children=int(user_info.Adults)
+    children=int(user_info.Children)
     Total_price=price*adults+price*children
     print(Total_price)
 
