@@ -46,46 +46,8 @@
   </tbody>
 </table>
 
-
-
-
 </body>
 </html>
 
 
 
-{% comment %} <table border="1px">
-
-    <thead>
-    <tr>
-        <th>Source</th>
-        <th>Destination</th>
-        <th>Airlines</th>
-        <th>Departure Time</th>
-        <th>Arrival Time</th>
-        <th>Fare Type</th>
-        <th>Price</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-
-{% for detail in details %}
-<tr>
-    <td>{{detail.Source}}</td>
-    <td>{{detail.Destination}}</td>
-    <td>{{detail.Airlines}}</td>
-    <td>{{detail.Departure_Time}}</td>
-    <td>{{detail.Arrival_Time}}</td>
-    <td>{{detail.Fare_Type}}</td>
-    <td>{{detail.Price}}</td>
-    
- 
-         {% csrf_token %}
-        <td><a href="{% url 'Airline_Reservation:booking_page' flight_id=detail.id %}">Book Now</a></td>
-        
-</tr>
-</tbody>
-{% endfor %}
-</table> {% endcomment %}

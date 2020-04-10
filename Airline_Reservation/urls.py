@@ -15,6 +15,7 @@ urlpatterns = [
     url('bookingpage/(?P<flight_id>[−\w]+)/$', views.bookingpage,name='booking_page'),
     url('reservationdetails/', views.reservationdetails,name='reservation_page'),
     url('fulldetails/(?P<user>[−\w]+)/$', views.fulldetails,name='full_details'),
+    url('deletedetails/(?P<user>[−\w]+)/$', views.deletedetails,name='delete_details'),
     
 ]
 

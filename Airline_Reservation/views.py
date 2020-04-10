@@ -113,8 +113,9 @@ def bookingpage(request,flight_id):
         data.Flight_Date=request.POST['departing']
         data.Returning_Date=request.POST['returning']
         data.key_id=flight_id
-
+    
         data.save()
+        return render(request,"homepage.html",{'user':current_user})   
     return render(request,"bookingpage.html",{'user':current_user})
 
 
@@ -131,13 +132,22 @@ def fulldetails(request,user):
     user_info=Reservation_Details.objects.get(id=user)
     flight_info = Airplane_Details.objects.get(id=user_info.key_id)
 
-
+    print(user_info.Status)
     price =int(flight_info.Price)
     adults= int(user_info.Adults)
     children=int(user_info.Children)
     Total_price=price*adults+price*children
-    print(Total_price)
-
     
 
     return render(request,"fulldetails.html",{'user':user_info,'fl':flight_info,'price':Total_price})    
+
+
+def deletedetails(request,user):
+    user_info=Reservation_Details.objects.get(id=user)
+    flight_info = Airplane_Details.objects.get(id=user_info.key_id)
+
+    user_info.Status=False
+    user_info.save
+
+    # return redirect('http://127.0.0.1:8000/fulldetails/')
+    return render(request,"homepage.html")

@@ -21,4 +21,4 @@ class Reservation_Details(models.Model):
     Returning_Date=models.DateField(null=True)
     Adults=models.IntegerField(null=True)
     Children=models.IntegerField()
-    
+    Status=models.BooleanField(default=True)

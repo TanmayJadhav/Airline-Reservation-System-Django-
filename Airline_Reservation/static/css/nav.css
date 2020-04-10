@@ -1,10 +1,11 @@
 .topnav {
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
     overflow: hidden;
     display:flexbox;
     height: 60px;
+    background-color: black;
 
-  }
+}
   
   /* Style the links inside the navigation bar */
   .topnav a {

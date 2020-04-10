@@ -37,62 +37,10 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody>
  
+  {% if user.Status == True %}
+  <tbody>
     <tr>
-     <td>{{user.Name}}</td>
-    <td>{{user.Email}}</td>
-    <td>{{fl.Airlines}}</td>
-    <td>{{fl.Source}}</td>
-    <td>{{fl.Destination}}</td>
-    <td>{{fl.Departure_Time}}</td>
-    <td>{{fl.Arrival_Time}}</td>
-    <td>{{user.Flight_Date}}</td>
-    <td>{{user.Returning_Date}}</td>
-    <td>{{user.Adults}}</td>
-    <td>{{user.Children}}</td>
-    <td>{{fl.Fare_Type}}</td>
-    <td>{{price}}</td>
-        
-       
-    </tr>
-
-  </tbody>
-</table>
-
-
-
-
-</body>
-</html>
-
-
-
-    {% comment %} <table border="1px">
-
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Airlnes</th>
-        <th>Source</th>
-        <th>Destination</th>
-        <th>Departure Time</th>
-        <th>Arrival Time</th>
-        <th>Flight Date</th>
-        <th>Return Date</th>
-        <th>Adults</th>
-        <th>Children</th>
-        <th>Fare Type</th>
-        <th>Total Price</th>
-        
-
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-
-<tr> 
     <td>{{user.Name}}</td>
     <td>{{user.Email}}</td>
     <td>{{fl.Airlines}}</td>
@@ -106,13 +54,44 @@
     <td>{{user.Children}}</td>
     <td>{{fl.Fare_Type}}</td>
     <td>{{price}}</td>
+    {% csrf_token %}
+        <td><a  class="btn btn-warning" href="{% url 'Airline_Reservation:delete_details' user=user.id  %}">Cancel</a></td>
+        <tr>
+        </tbody>
+  {% else %}
+   <tbody>
+    <tr>
+    <td>{{user.Name}}</td>
+    <td>{{user.Email}}</td>
+    <td>{{fl.Airlines}}</td>
+    <td>{{fl.Source}}</td>
+    <td>{{fl.Destination}}</td>
+    <td>{{fl.Departure_Time}}</td>
+    <td>{{fl.Arrival_Time}}</td>
+    <td>{{user.Flight_Date}}</td>
+    <td>{{user.Returning_Date}}</td>
+    <td>{{user.Adults}}</td>
+    <td>{{user.Children}}</td>
+    <td>{{fl.Fare_Type}}</td>
+    <td>{{price}}</td>
+    {% csrf_token %}
+        <td>Cancelled</td>
+       
+    </tr>
+     </tbody>
+  {% endif%}
+  
+</table>
+
+
+
+
+</body>
+</html>
+
+
+
     
-      
-</tr>
-</tbody>
-</table> {% endcomment %}
-
-
 
   
 </body>
