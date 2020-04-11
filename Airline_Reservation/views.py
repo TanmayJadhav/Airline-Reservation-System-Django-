@@ -147,7 +147,7 @@ def deletedetails(request,user):
     flight_info = Airplane_Details.objects.get(id=user_info.key_id)
 
     user_info.Status=False
-    user_info.save
+    user_info.save()
 
-    # return redirect('http://127.0.0.1:8000/fulldetails/')
+    
     return render(request,"homepage.html")
