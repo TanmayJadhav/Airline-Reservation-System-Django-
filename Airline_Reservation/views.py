@@ -68,9 +68,9 @@ def forgotpassword(request):
     if request.method == 'POST':
         username =request.POST['username']
         newpassword =request.POST['newpassword']
+        email=request.POST['email']
         
-        
-        if User.objects.filter(username=username).exists():
+        if User.objects.filter(username=username,email=email).exists():
             u = User.objects.get(username=username)
             u.set_password(newpassword)
             u.save()
@@ -78,7 +78,7 @@ def forgotpassword(request):
             return redirect('http://127.0.0.1:8000/forgotpassword/')
 
         else:
-            messages.info(request,'Username not found!!!')
+            messages.info(request,'Username or email not found!!!')
             return render(request,"forgotpassword.html")
         
     else:
